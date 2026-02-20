@@ -1,0 +1,16 @@
+{
+  "name": "meal-plan-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start:test": "node --loader ts-node/esm src/test.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "pg": "^8.11.1",
+    "typeorm": "^0.3.17"
+  }
+}
