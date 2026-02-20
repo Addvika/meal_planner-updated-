@@ -5,15 +5,15 @@ import { Recipe } from "./entities/Recipe.ts";
 import { Ingredient } from "./entities/Ingredient.ts";
 import { RecipeIngredient } from "./entities/RecipeIngredient.ts";
 export const AppDataSource = new DataSource({
-    type: "postgres",
-    host: "localhost",
-    port: 5432,
-    username: "postgres",      // change if needed
-    password: "Adventure*21",      // change if needed
-    database: "mydb",          // your database
+    type: "type",
+    host: "host",
+    port: port,
+    username: "user_name",      // change if needed
+    password: "password",      // change if needed
+    database: "database",          // your database
     synchronize: true,         
     logging: ["error","query", "schema"],
-    entities: [User,Recipe,Ingredient,RecipeIngredient],
+    entities: [entities],
     migrations:[],
     subscribers: [],
 });
