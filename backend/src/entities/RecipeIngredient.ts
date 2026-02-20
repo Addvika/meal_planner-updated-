@@ -1,9 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn, Column } from "typeorm";
-import { Recipe } from "./Recipe.ts";
-import { Ingredient } from "./Ingredient.ts";
+import { Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn, Column,Index} from "typeorm";
+import { Recipe } from "./Recipe";
+import type {Relation} from "typeorm";
+import { Ingredient } from "./Ingredient";
 
 @Entity()
 export class RecipeIngredient {
+  @Index(["recipeId"]) 
   @PrimaryGeneratedColumn()
   id!: number;
 
@@ -15,10 +17,11 @@ export class RecipeIngredient {
   @JoinColumn({ name: "recipeId" })
   recipe!: Recipe;
 */
-  @ManyToOne(() => Recipe, recipe => recipe.recipeIngredients, { onDelete: "CASCADE" }) // <-- Use clean syntax
-@JoinColumn({ name: "recipeId" })
-recipe!: Recipe; // <-- Use clean type
-  @ManyToOne(() => Ingredient, ingredient => ingredient.recipeIngredients, { onDelete: "CASCADE", eager: true })
+ @ManyToOne("Recipe", "recipeIngredients", { onDelete: "CASCADE" })
+  @JoinColumn({ name: "recipeId" })
+  recipe!: Relation<Recipe>; // Use Relation<> wrapper
+
+  @ManyToOne("Ingredient", "recipeIngredients", { onDelete: "CASCADE", eager: true })
   @JoinColumn({ name: "ingredientId" })
-  ingredient!: Ingredient;
+  ingredient!: Relation<Ingredient>;
 }

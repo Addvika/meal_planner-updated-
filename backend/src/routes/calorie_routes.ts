@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { AppDataSource } from "../data-source.ts";
-import { Recipe } from "../entities/Recipe.ts";
-import { RecipeIngredient } from "../entities/RecipeIngredient.ts";
-import { Ingredient } from "../entities/Ingredient.ts";
+import { AppDataSource } from "../data-source";
+import { Recipe } from "../entities/Recipe";
+import { RecipeIngredient } from "../entities/RecipeIngredient";
+import { Ingredient } from "../entities/Ingredient";
 
 const router = Router();
 

@@ -1,17 +1,20 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
-import { RecipeIngredient } from "./RecipeIngredient.ts";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, Index } from "typeorm";
+import { RecipeIngredient } from "./RecipeIngredient";
 
 @Entity()
 export class Ingredient {
   @PrimaryGeneratedColumn()
   id!: number;
 
+  @Index()
   @Column("varchar")
   name!: string;
 
+  @Index()
   @Column("numeric", { nullable: true })
   costPerUnit!: number;
 
+  @Index()
   @Column("numeric", { nullable: true })
   caloriesPerUnit!: number;
 

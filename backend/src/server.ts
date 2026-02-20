@@ -4,9 +4,9 @@ import "reflect-metadata"; // Required by TypeORM and decorators
 import express from "express";
 
 // Import Route Handlers
-import recipeRoutes from "./routes/recipe_routes.ts";
-import ingredientRoutes from "./routes/ingredient_routes.ts";
-import calorieRoutes from "./routes/calorie_routes.ts";
+import recipeRoutes from "./routes/recipe_routes";
+import ingredientRoutes from "./routes/ingredient_routes";
+import calorieRoutes from "./routes/calorie_routes";
 
 const app = express();
 const PORT = 3000;
@@ -28,7 +28,7 @@ async function initializeAndStartServer() {
     try {
         // 1. LAZY LOAD THE DATA SOURCE
         // Using await import() breaks any potential synchronous dependency cycle with entities.
-        const { AppDataSource } = await import("./data-source.ts");
+        const { AppDataSource } = await import("./data-source");
 
         // 2. Initialize TypeORM
         await AppDataSource.initialize();

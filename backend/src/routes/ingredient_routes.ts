@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { AppDataSource } from "../data-source.ts";
-import { Ingredient } from "../entities/Ingredient.ts";
+import { AppDataSource } from "../data-source";
+import { Ingredient } from "../entities/Ingredient";
 
 const router = Router();
 
